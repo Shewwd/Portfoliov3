@@ -56,7 +56,7 @@ function changeSlide(slideName, incrament){
 /* --------- ReCaptcha --------- */
 
 function onloadCallback(){
-    fetch("https://us-central1-portfolio-51d79.cloudfunctions.net/app/api-key").then(response => response.json()).then(data => {
+    fetch("https://us-central1-portfolio-51d79.cloudfunctions.net/api/api-key").then(response => response.json()).then(data => {
         grecaptcha.render('recaptcha_element', {
             'sitekey' : data.googleSiteApiKey,
             'callback' : completeCallback,
@@ -116,7 +116,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     emailRef.disabled = true;
     messageRef.disabled = true;
 
-    fetch("https://us-central1-portfolio-51d79.cloudfunctions.net/app/send-email", {
+    fetch("https://us-central1-portfolio-51d79.cloudfunctions.net/api/send-email", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

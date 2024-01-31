@@ -45,4 +45,4 @@ app.post('/send-email', async (req, res) => {
     res.json({response});
 });
 
-exports.app = functions.https.onRequest(app);
+exports.api = functions.https.onRequest(app);
