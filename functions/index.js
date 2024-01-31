@@ -30,7 +30,7 @@ function sendEmail(data){
     });
 };
 
-app.get('/api/get-token', (req, res) => {
+app.get('/get-token', (req, res) => {
     const token = jwt.sign({}, process.env.JWT_KEY, { expiresIn: '1h' });
     
     res.json({ token });
