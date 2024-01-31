@@ -1,3 +1,10 @@
+/* --------- On Load --------- */
+window.onload = function() {
+    fetch("https://us-central1-portfolio-51d79.cloudfunctions.net/api/get-token").then(response => response.json()).then(data => {
+        localStorage.setItem('token', data.token);
+    });
+};
+
 /* --------- Nav --------- */
 function scrollToSection(section, mobile) {
     const targetElement = document.getElementById(`${section}-card`);
@@ -56,7 +63,11 @@ function changeSlide(slideName, incrament){
 /* --------- ReCaptcha --------- */
 
 function onloadCallback(){
-    fetch("https://us-central1-portfolio-51d79.cloudfunctions.net/api/api-key").then(response => response.json()).then(data => {
+    fetch("https://us-central1-portfolio-51d79.cloudfunctions.net/api/api-key", {
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }    
+    }).then(response => response.json()).then(data => {
         grecaptcha.render('recaptcha_element', {
             'sitekey' : data.googleSiteApiKey,
             'callback' : completeCallback,
@@ -120,6 +131,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
         },
         body: JSON.stringify({
             name: name,
