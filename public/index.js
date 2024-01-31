@@ -79,9 +79,9 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     const emailRef = document.getElementById('contact-email');
     const messageRef = document.getElementById('contact-message');
 
-    const name = encodeURIComponent(nameRef.value.trim());
+    const name = nameRef.value.trim();
     const email = emailRef.value.trim();
-    const message = encodeURIComponent(messageRef.value.trim());
+    const message = messageRef.value.trim();
 
     let errorMessage = "";
 
