@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+        <link rel="stylesheet" href="/styles.css">
+        <title>Jacob Shawd's Portfolio</title>
+    </head>
+    <body>
+        <header>
+            <nav class="nav-expanded">
+                <a onclick="scrollToSection('bio', false)"><h4>Bio</h4></a>
+                <a onclick="scrollToSection('technologies', false)"><h4>Technologies</h4></a>
+                <a onclick="scrollToSection('work', false)"><h4>Work</h4></a>
+                <a onclick="scrollToSection('projects', false)"><h4>Projects</h4></a>
+                <a onclick="scrollToSection('contact', false)"><h4>Contact</h4></a>
+                <a href="https://github.com/Shewwd" target="_blank" rel="noopener noreferrer"><img src="/assets/svg/github-icon.svg" alt="GitHub icon" ></a>
+                <a href="https://www.linkedin.com/in/jacob-shawd-8575b7276/" target="_blank" rel="noopener noreferrer"><img src="/assets/svg/linkedin-icon.svg" alt="LinkedIn icon" ></a>
+            </nav>
+            <nav class="nav-mobile">
+                <div class="expand-nav-button">
+                    <img onclick="handleNavExpand()" width="25" height="25" src="/assets/svg/burger-menu.svg" alt="Nav Expand Button" >
+                </div>
+                <div id="mobile-nav-list" class="mobile-nav-list">
+                    <a onclick="scrollToSection('bio', true)"><h4>Bio</h4></a>
+                    <a onclick="scrollToSection('technologies', true)"><h4>Technologies</h4></a>
+                    <a onclick="scrollToSection('work', true)"><h4>Work</h4></a>
+                    <a onclick="scrollToSection('projects', true)"><h4>Projects</h4></a>
+                    <a onclick="scrollToSection('contact', true)"><h4>Contact</h4></a>
+                    <a href="https://github.com/Shewwd" target="_blank" rel="noopener noreferrer"><img src="/assets/svg/github-icon.svg" alt="GitHub icon" ></a>
+                    <a href="https://www.linkedin.com/in/jacob-shawd-8575b7276/" target="_blank" rel="noopener noreferrer"><img src="/assets/svg/linkedin-icon.svg" alt="LinkedIn icon" ></a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="card">
+                <h1>Hello I'm Jake</h1>
+            </div>
+            <div id="bio-card" class="card">
+                <h2>Bio</h2>
+                <p class="bio-card-content">
+                    I'm an aspiring computer science graduate with a passion for creating innovative and user-centric digital experiences. 
+                    I primarily work within .NET and React ecosystems, but my experience extends beyond these technologies. 
+                    Currently based in Sioux Falls, SD, I am on a journey to advance my career as a software engineer.
+                </p>
+            </div>
+            <div id="technologies-card" class="card">
+                <h2>Technologies</h2>
+                <div class="technology-card-content">
+                    <div>
+                        <h3>Languages</h3>
+                        <ul>
+                            <li>C#</li>
+                            <li>JavaScript</li>
+                            <li>TypeScript</li>
+                            <li>C/C++</li>
+                            <li>VB.NET</li> 
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Frameworks</h3>
+                        <ul>
+                            <li>React</li>
+                            <li>Bootstrap</li>
+                            <li>Vue</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Other Services</h3>
+                        <ul>
+                            <li>Git/GitHub</li>
+                            <li>Firebase</li>
+                            <li>Auth0</li>
+                            <li>Figma</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="work-card" class="card">
+                <h2>Work</h2>
+                <div class="work-card-content-row">
+                    <div class="work-card-content-row-header">
+                        <h3>Dakota State University, Computer Science</h3>
+                        <p>2021 - 2024</p>
+                    </div>
+                    <div class="technology-row">
+                        <p class="technology-item">C</p>
+                        <p class="technology-item">C++</p>
+                        <p class="technology-item">HTML</p>
+                        <p class="technology-item">CSS</p>
+                        <p class="technology-item">PHP</p>
+                    </div>
+                </div>
+                <div class="work-card-content-row">
+                    <div class="work-card-content-row-header">
+                        <h3>Sandhills Global, Software Developer Intern</h3>
+                        <p>2022 - Present</p>
+                    </div>
+                    <div class="technology-row">
+                        <p class="technology-item">C#</p>
+                        <p class="technology-item">VB.Net</p>
+                        <p class="technology-item">JavaScript</p>
+                        <p class="technology-item">TypeScript</p>
+                        <p class="technology-item">React</p>
+                    </div>
+                </div>
+            </div>
+            <div id="projects-card" class="card">
+                <h2>Personal Projects</h2>
+                <div class="project-card-list">
+                    <div class="project-card-item">
+                        <h3>Snake Game</h3>
+                        <div class="project-card-item-content">
+                            <div class="slideshow">
+                                <img id="snake-game-image-1" class="shown" height="200" width="200" src="/assets/images/snake-game-icon.jpg" alt="Snake Game">
+                                <img id="snake-game-image-2" class="hidden" height="200" width="200" src="/assets/images/snake-game-1.png" alt="Snake Game">
+                                <img id="snake-game-image-3" class="hidden" height="200" width="200" src="/assets/images/snake-game-2.png" alt="Snake Game">
+                                <div class="slideshow-buttons">
+                                    <button class="slideshow-button" onclick="changeSlide('snake-game', -1)">&#10094;</button>
+                                    <button class="slideshow-button" onclick="changeSlide('snake-game', 1)">&#10095;</button>
+                                </div>
+                            </div>
+                            <p>
+                                I decided to create this game when I read that Bun 1.0 had been released. While I didn't have a specific purpose for it, my past experience with npm prompted me to explore the differences. 
+                                This game is entirely built Vue, JS/TS, HTML, and CSS. It's just a whole bunch of divs tracked with a 2d array. Beyond that, it's a basic snake game where you navigate with the arrow keys, and when you collect food, the snake grows.
+                            </p>
+                        </div>
+                        <div class="technology-row">
+                            <p class="technology-item">JavaScript</p>
+                            <p class="technology-item">TypeScript</p>
+                            <p class="technology-item">Vue</p>
+                            <p class="technology-item">Bun</p>
+                            <p class="technology-item">HTML</p>
+                            <p class="technology-item">CSS</p>
+                        </div>
+                    </div>
+                    <div class="project-card-item">
+                        <h3>Gym Rat Lab</h3>
+                        <div class="project-card-item-content">
+                            <div class="slideshow">
+                                <img id="gym-project-image-1" class="shown" height="200" width="200" src="/assets/images/gym-project-icon.webp" alt="Gym Project">
+                                <img id="gym-project-image-2" class="hidden" height="200" width="200" src="/assets/images/gym-project-1.png" alt="Gym Project">
+                                <img id="gym-project-image-3" class="hidden" height="200" width="200" src="/assets/images/gym-project-2.png" alt="Gym Project">
+                                <img id="gym-project-image-4" class="hidden" height="200" width="200" src="/assets/images/gym-project-3.png" alt="Gym Project">
+                                <div class="slideshow-buttons">
+                                    <button class="slideshow-button" onclick="changeSlide('gym-project', -1)">&#10094;</button>
+                                    <button class="slideshow-button" onclick="changeSlide('gym-project', 1)">&#10095;</button>
+                                </div>
+                            </div>
+                            <p>
+                                Gym Rat Lab was a school project done by me and 3 other classmates. It allows a user to complete workouts with exercises within. 
+                                There are preset exercises and workout template a user can select or they can create their own.
+                            </p>
+                        </div>
+                        <div class="technology-row">
+                            <p class="technology-item">JavaScript</p>
+                            <p class="technology-item">TypeScript</p>
+                            <p class="technology-item">React</p>
+                            <p class="technology-item">npm</p>
+                            <p class="technology-item">Auth0</p>
+                            <p class="technology-item">HTML</p>
+                            <p class="technology-item">CSS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="contact-card" class="card">
+                <h2>Contact Me</h2>
+                <div class="contact-card-content">
+                    <div id="contact-captcha" class="captcha">
+                        <div id="recaptcha_element"></div>
+                        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+                    </div>
+                    <form id="contact-form" class="contact-form hidden">
+                        <div>
+                            <label for="contact-name" class="label">Name</label>
+                            <input type="text" id="contact-name" name="name">
+                        </div>
+                        <div>
+                            <label for="contact-email" class="label">Email</label>
+                            <input type="text" id="contact-email" name="email">
+                        </div>
+                        <div>
+                            <label for="contact-message" class="label">Message</label>
+                            <textarea id="contact-message" name="message" maxlength="280" rows="6"></textarea>
+                        </div>
+                        <button id="contact-form-submit" class="contact-form-submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <script src="/index.js"></script>
+    </body>
+</html>
