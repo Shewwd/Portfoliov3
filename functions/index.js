@@ -1,26 +1,11 @@
-require('dotenv').config();
-/* --------- Server Start --------- */
+const functions = require('firebase-functions');
 const express = require('express');
-const path = require('path');
+const cors = require('cors');
+const nodemailer = require('nodemailer');
 
 const app = express();
-const port = 3000; 
-
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(cors());
 app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.listen(port, function(err){
-    if (err) console.log("Error in server setup")
-    console.log("Server listening on Port", port);
-})
-
-/* --------- Email --------- */
-const nodemailer = require('nodemailer');
 
 const nodemailerConfig = {
     service: 'gmail',
@@ -44,7 +29,6 @@ function sendEmail(data){
     });
 };
 
-/* --------- Endpoints --------- */
 app.get('/api-key', (req, res) => {
     res.json({ googleSiteApiKey: process.env.GOOGLE_SITE_KEY });
 });   
@@ -60,3 +44,5 @@ app.post('/send-email', async (req, res) => {
     const response = await sendEmail(emailData);
     res.json({response});
 });
+
+exports.app = functions.https.onRequest(app);
