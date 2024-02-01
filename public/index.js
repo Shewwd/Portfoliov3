@@ -63,6 +63,9 @@ function changeSlide(slideName, incrament){
 /* --------- ReCaptcha --------- */
 
 function onloadCallback(){
+
+    while(localStorage.getItem('token') === null){}
+    
     fetch("https://us-central1-portfolio-51d79.cloudfunctions.net/api/api-key", {
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
