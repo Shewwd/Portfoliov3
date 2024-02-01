@@ -64,7 +64,18 @@ function changeSlide(slideName, incrament){
 
 function onloadCallback(){
 
-    while(localStorage.getItem('token') === null){}
+    const maxAttempts = 10;
+    let attempt = 0
+    while(localStorage.getItem('token') === null && attempt < maxAttempts){
+
+        setTimeout( () => {}, 500);
+        attempt++;
+    }
+
+    if(localStorage.getItem('token') === null){
+        console.log("Error retrieving contact form");
+        return;
+    }
     
     fetch("https://us-central1-portfolio-51d79.cloudfunctions.net/api/api-key", {
         headers: {
